@@ -7,6 +7,15 @@ const messages = [
 ];
 
 export default function App() {
+  return (
+    <div>
+      <Steps />
+      <Steps />
+    </div>
+  );
+}
+
+function Steps() {
   // const step = 3;
   //NOTE: React hook
   const [step, setStep] = useState(1);
@@ -14,6 +23,7 @@ export default function App() {
 
   function handlePrevious() {
     if (step > 1) setStep(step - 1);
+    //if(step > 1) setStep((s) => s-1); Move forwards for two steps
   }
 
   function handleNext() {
@@ -21,8 +31,8 @@ export default function App() {
   }
 
   return (
-    <>
-      <button className="close" onClick={() => setIsOpen(!isOpen)}>
+    <div>
+      <button className="close" onClick={() => setIsOpen((is) => !is)}>
         &times;
       </button>
       {isOpen && (
@@ -52,6 +62,6 @@ export default function App() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
